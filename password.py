@@ -29,7 +29,7 @@ def __init__(self, first_name, last_name, account, password):
         '''
         User.user_list.remove(self)
 
-        @classmethod
+    @classmethod
     def find_by_account(cls,account):
         '''
         Method takes in account name and returns user info that matches that account
@@ -43,7 +43,7 @@ def __init__(self, first_name, last_name, account, password):
                 return info
 
 
-  @classmethod
+    @classmethod
     def user_exists(cls,account):
         '''
         Method checks if user exists from the user_list
@@ -56,14 +56,22 @@ def __init__(self, first_name, last_name, account, password):
         for user in cls.user_list:
             if user.account == account:
                 return True
-                   return False
+
+                   
 
 
-    @classmethod
-    def display_users(cls):
+@classmethod
+def display_users(cls):
         '''
         Method that returns user list
         '''
         return cls.user_list
 
-        
+ class Credentials:
+    
+    '''
+    Class  generates and saves credentials for users
+    '''
+    def __init__(self, account, password):
+        self.password = password
+       
