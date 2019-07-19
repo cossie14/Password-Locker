@@ -53,3 +53,10 @@ def display_users():
     '''
     return User.display_users()
 
+
+def save_password(credentials):
+    '''
+    Function that saves new password
+    '''
+    return credentials.save_password()
+
