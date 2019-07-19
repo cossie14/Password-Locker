@@ -37,3 +37,11 @@ def find_user(account):
     Function that finds a user by account and returns the  user
     '''
     return User.find_by_account(account)
+
+
+def check_existing_user(account):
+    '''
+    Function that checks if a user exists with that account and returns Boolean
+    '''
+    return User.user_exists(account)
+
