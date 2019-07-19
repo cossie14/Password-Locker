@@ -30,3 +30,10 @@ def create_password(account, password):
     Function to delete a user
     '''
     user.delete_user()
+
+
+def find_user(account):
+    '''
+    Function that finds a user by account and returns the  user
+    '''
+    return User.find_by_account(account)
