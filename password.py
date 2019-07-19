@@ -65,3 +65,5 @@ def __init__(self, first_name, last_name, account, password):
         Method that returns user list
         '''
         return cls.user_list
+
+        
