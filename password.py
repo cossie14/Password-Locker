@@ -22,3 +22,9 @@ def __init__(self, first_name, last_name, account, password):
         save_user method saves user names into the user list
         '''
         User.user_list.append(self)
+
+    def delete_user(self):
+        '''
+        delete_user method deletes the user info from user_list
+        '''
+        User.user_list.remove(self)
