@@ -61,9 +61,9 @@ def generate_password():
     return Credentials.generatePassword()
 
 
-# def save_password(credentials):
-#     '''
-#     Function that saves new password
-#     '''
-#     return credentials.save_password()
+def save_password(credentials):
+    '''
+    Function that saves new password
+    '''
+    return credentials.save_password()
 
