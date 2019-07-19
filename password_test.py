@@ -81,6 +81,19 @@ class TestUser(unittest.TestCase):
                 return info
 
 
+  @classmethod
+    def user_exists(cls,account):
+        '''
+        Method checks if user exists from the user_list
+        Args:
+            account : Account to search if user exists from user_list
+        Return:
+            Boolean: True or false depending if the user exists
+        '''
+
+        for user in cls.user_list:
+            if user.account == account:
+                return True
 
 
     if __name__ == '__main__':
