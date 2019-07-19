@@ -1,5 +1,7 @@
 import unittest
 from password import User 
+from password import Credentials
+
 
 
 
@@ -10,13 +12,13 @@ class TestUser(unittest.TestCase):
         unittest.TestCase: TestCase class that helps create test cases
     '''
 
-    def setUp(self):
+def setUp(self):
         '''
         Set up method to run before each test instance
         '''
         self.new_user = User("Sylviah", "Jepkosgei", "Instagram", "sly14")
 
-    def test__init__(self):
+def test__init__(self):
         '''
         Test to if check the initialization/creation of user instances is properly done
         '''
@@ -27,7 +29,7 @@ class TestUser(unittest.TestCase):
 
 
 
-    def test_save_user(self):
+def test_save_user(self):
         '''
         test_save_user test case to test if the user object is saved to the user_list
         '''
@@ -36,14 +38,14 @@ class TestUser(unittest.TestCase):
 
 
 
-    def tearDown(self):
+def tearDown(self):
         '''
         tearDown does clean up after each test case has run
         '''
         User.user_list = []
 
 
-    def test_save_multiple_users(self):
+def test_save_multiple_users(self):
         '''
         test_save_multiple_users to check if we can save multiple users in our user_list
         '''
@@ -55,7 +57,7 @@ class TestUser(unittest.TestCase):
 
 
 
-    def test_delete_user(self):
+def test_delete_user(self):
         '''
         test_delete_user to test if we can remove a user from object user_list
         '''
@@ -68,7 +70,7 @@ class TestUser(unittest.TestCase):
 
 
 
-    def test_find_user_by_account(self):
+def test_find_user_by_account(self):
         '''
         test to check if we can return a user by account
         '''
@@ -81,7 +83,7 @@ class TestUser(unittest.TestCase):
         self.assertEqual(found_user.account, test_user.account)
 
 
-    def test_user_exists(self):
+def test_user_exists(self):
         '''
         test to check if we can return a Boolean if we don't find the user
         '''
@@ -91,7 +93,7 @@ class TestUser(unittest.TestCase):
         user_exists = User.user_exists("Facebook")
         self.assertTrue(user_exists)
     
-    def test_display_all_users(self):
+def test_display_all_users(self):
         '''
         method that returns a list of all users saved
         '''
@@ -99,7 +101,7 @@ class TestUser(unittest.TestCase):
 
 
 
-    if __name__ == '__main__':
+if __name__ == '__main__':
         unittest.main()
 
 

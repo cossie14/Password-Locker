@@ -1,5 +1,4 @@
 import random
-import string
 
 class User:
           """
@@ -80,4 +79,12 @@ def display_users(cls):
         chars = '111111111111111111111111111122222222222226666666666666'
         new_pass = ''.join(random.sample(chars, 5))
         return new_pass
+
+
+    def save_password(self):
+        '''
+        method saves user names into the user list
+        '''
+        User.user_list.append(self)
+
        
