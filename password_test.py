@@ -37,6 +37,13 @@ class TestUser(unittest.TestCase):
 
 
 
+    def tearDown(self):
+        '''
+        tearDown does clean up after each test case has run
+        '''
+        User.user_list = []
+
+
     if __name__ == '__main__':
         unittest.main()
 
