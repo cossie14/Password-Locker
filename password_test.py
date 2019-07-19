@@ -67,6 +67,20 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
 
+    @classmethod
+    def find_by_account(cls,account):
+        '''
+        Method takes in account name and returns user info that matches that account
+        Args:
+            Account name to search for
+        Returns:
+            User info for that account
+        '''
+        for info in cls.user_list:
+            if info.account == account:
+                return info
+
+
 
 
     if __name__ == '__main__':
