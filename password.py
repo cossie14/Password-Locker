@@ -16,3 +16,9 @@ def __init__(self, first_name, last_name, account, password):
     self.account = account
     self.password = password
 
+
+    def save_user(self):
+        '''
+        save_user method saves user names into the user list
+        '''
+        User.user_list.append(self)
