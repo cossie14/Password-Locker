@@ -45,3 +45,11 @@ def check_existing_user(account):
     '''
     return User.user_exists(account)
 
+
+
+def display_users():
+    '''
+    Function that returns all saved users
+    '''
+    return User.display_users()
+
