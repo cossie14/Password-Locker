@@ -67,35 +67,23 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
 
-    @classmethod
-    def find_by_account(cls,account):
-        '''
-        Method takes in account name and returns user info that matches that account
-        Args:
-            Account name to search for
-        Returns:
-            User info for that account
-        '''
-        for info in cls.user_list:
-            if info.account == account:
-                return info
 
 
-  @classmethod
-    def user_exists(cls,account):
+    def test_find_user_by_account(self):
         '''
-        Method checks if user exists from the user_list
-        Args:
-            account : Account to search if user exists from user_list
-        Return:
-            Boolean: True or false depending if the user exists
+        test to check if we can return a user by account
         '''
 
-        for user in cls.user_list:
-            if user.account == account:
-                return True
+        self.new_user.save_user()
+        test_user = User("Sylviah","Jepkosgei", "Facebook", "sly14")
+        test_user.save_user()
+
+        found_user = User.find_by_account("Facebook")
+        self.assertEqual(found_user.account, test_user.account)
 
 
+
+    
     if __name__ == '__main__':
         unittest.main()
 

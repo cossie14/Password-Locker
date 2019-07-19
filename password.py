@@ -28,3 +28,33 @@ def __init__(self, first_name, last_name, account, password):
         delete_user method deletes the user info from user_list
         '''
         User.user_list.remove(self)
+
+        @classmethod
+    def find_by_account(cls,account):
+        '''
+        Method takes in account name and returns user info that matches that account
+        Args:
+            Account name to search for
+        Returns:
+            User info for that account
+        '''
+        for info in cls.user_list:
+            if info.account == account:
+                return info
+
+
+  @classmethod
+    def user_exists(cls,account):
+        '''
+        Method checks if user exists from the user_list
+        Args:
+            account : Account to search if user exists from user_list
+        Return:
+            Boolean: True or false depending if the user exists
+        '''
+
+        for user in cls.user_list:
+            if user.account == account:
+                return True
+                   return False
+
