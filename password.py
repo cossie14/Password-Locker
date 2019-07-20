@@ -66,22 +66,21 @@ def display_users(cls):
         '''
         return cls.user_list
 
- class Credentials:
+class Credentials:
     
     '''
     Class  generates and saves credentials for users
     '''
-       def __init__(firstname, account, password):
+def __init__(first_name,last_name, account, password):
         self.password = password
         self.account = account
 
-        def Password():
+def Password():
         chars = '111111111111111111111111111122222222222226666666666666'
         new_pass = ''.join(random.sample(chars, 5))
         return new_pass
 
-
-    def save_password(self):
+def save_password(self):
         '''
         method saves user names into the user list
         '''
