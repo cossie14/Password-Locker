@@ -1,16 +1,16 @@
 #!/usr/bin/env python3.6
+import random
 from password import User
 from password import Credentials
-import random
 from getpass import getpass
 
-
-def create_user(first_name,last_name, account,password):
+def create_user(firstname,lastname, account,password):
     '''
     Function to create a new user
     '''
-    new_user = User(fname,lname, account,password)
+    new_user = User(username, account,password)
     return new_user
+
 
 def create_password(account, password):
     '''
@@ -19,13 +19,12 @@ def create_password(account, password):
     new_pass = Credentials(account, password)
     return new_pass
 
+
 def save_user(user):
     '''
     Function to save users
-   
     '''
     user.save_user()
-
 
 def del_user(user):
     '''
@@ -33,13 +32,11 @@ def del_user(user):
     '''
     user.delete_user()
 
-
 def find_user(account):
     '''
-    Function that finds a user by account and returns the  user
+    Function that finds a user by account name and returns the  user
     '''
     return User.find_by_account(account)
-
 
 def check_existing_user(account):
     '''
@@ -47,21 +44,11 @@ def check_existing_user(account):
     '''
     return User.user_exists(account)
 
-
-
 def display_users():
     '''
     Function that returns all saved users
     '''
     return User.display_users()
-
-
-def generate_password():
-    '''
-    Function that generates a password for the user
-    '''
-    return Credentials.generatePassword()
-
 
 def save_password(credentials):
     '''
@@ -69,15 +56,20 @@ def save_password(credentials):
     '''
     return credentials.save_password()
 
+def generate_password():
+    '''
+    Function that generates a password for the user
+    '''
+    return Credentials.generatePassword()
 
 def main():
-    print("Hello! Welcome to your Password Locker.Sign up below")
+    print("Hello! Welcome to Password Locker.")
     while True:
-        access_name = input("Password Locker Username: ").lower()
+        access_name = input("Enter your First Name: ").lower()
         if access_name == '':
             print("Invalid username")
         else:
-            access_pass = getpass("Password Locker sign up key:  ")
+            access_pass = getpass("Sign up:")
             print("Log in using your sign-up credentials")
             login_name = input("Log in with your username: ").lower()
             login_pass = getpass("Please enter registered password: ")
