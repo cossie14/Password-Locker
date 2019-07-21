@@ -4,100 +4,88 @@ from password import User
 from password import Credentials
 from getpass import getpass
 
-def create_user(firstname,lastname, account,password):
+def create_user(firstname,lastname,password):
     '''
-    Function to create a new user
+    Function to create user account
     '''
-    new_user = User(username, account,password)
+    new_user = User(firstname,lastname,password)
     return new_user
-
-
-def create_password(account, password):
-    '''
-    Function to create new password
-    '''
-    new_pass = Credentials(account, password)
-    return new_pass
-
 
 def save_user(user):
     '''
-    Function to save users
+    Function to save new users
     '''
-    user.save_user()
+    User.save_user(user)
 
-def del_user(user):
+def authenticate_user(first_name,password):
     '''
-    Function to delete a user
+    Function to verify user 
     '''
-    user.delete_user()
-
-def find_user(account):
-    '''
-    Function that finds a user by account name and returns the  user
-    '''
-    return User.find_by_account(account)
-
-def check_existing_user(account):
-    '''
-    Function that checks if a user exists with that account and returns Boolean
-    '''
-    return User.user_exists(account)
-
-def display_users():
-    '''
-    Function that returns all saved users
-    '''
-    return User.display_users()
-
-def save_password(credentials):
-    '''
-    Function that saves new password
-    '''
-    return credentials.save_password()
+    confirm_user = Credential.confirm_user(first_name,password)
+    return confirm_user
 
 def generate_password():
     '''
-    Function that generates a password for the user
+    Function to generate password
     '''
-    return Credentials.generatePassword()
+    gen_pwd = Credential.generate_password()
+    return gen_pwd
+
+def create_credential(user_name,media,account_name,password):
+    '''
+    Function to create new credentials
+    '''
+    new_credential = Credential(user_name,media,account_name,password)
+    return new_credential
+
+def save_credential(credential):
+    '''
+    Function to save new credentials
+    '''
+    Credential.save_credentials(credential)
+
+def display_credentials():
+    '''
+    Function to display_credentials saved
+    '''
+
 
 def main():
     print("Hello! Welcome to Password Locker.")
     while True:
-        access_name = input("Enter your First Name: ").lower()
+        access_name = input("Enter your username here: ").lower()
         if access_name == '':
             print("Invalid username")
         else:
-            access_pass = getpass("Sign up:")
-            print("Log in using your sign-up credentials")
+            access_pass = getpass("Enter a password here:  ")
+            print("Log in ")
             login_name = input("Log in with your username: ").lower()
             login_pass = getpass("Please enter registered password: ")
             if access_pass == login_pass:
                 print('\n')
-                print(f"Welcome back {access_name}. What would you like to do?")
+                print(f"Welcome back {access_name}. Choose an option")
                 print('\n')
 
             else:
                 print("Invalid username or password!")
 
             while access_pass == login_pass:
-                    print("Use these short codes : cc - create  new account credentials, dc - display account credentials, fc -find an account's credentials, ex -exit Password Locker, del - delete account credentials ")
+                    print("Use these short codes : cc - create  new account credentials, dc - display account credentials, fc -find an account's credentials, ex -exit , del - delete account credentials ")
 
                     short_code = input().lower()
 
                     if short_code == 'cc':
                             print("New Account")
-                            print("*"*50)
+                            print("*"*80)
 
                             while True:
-                                print ("Which account is this?...")
+                                print ("Which account ?...")
                                 account = input()
 
                                 print("What's your username? ...")
                                 username = input()
 
-                                print("Would you like a generated password or a customised one? Type c for customised and g for generated...")
+                                print("Choose an option, generated password or a customised? Type c for customised and g for generated...")
 
                                 pass_choice = input().lower()
 
@@ -111,16 +99,15 @@ def main():
                                 elif pass_choice == 'g':
                                     print("Here's a password we think will work for you...")
                                     print('\n')
-                                    print(generate_password())
-                                    gene= generate_password()
+                                    print(generated_password())
+                                    gene= generated_password()
 
                                 if account == '' or username == '' or pass_choice == '':
                                     print("Account creation failed! Either Account, username or password is blank")
                                     print('\n')
 
                                 else:
-                                    save_user(create_user(username, account,gene)) # create and save new account.
-                                    # save_user(create_user(username,account,custom_pass))
+                                    save_user(create_user(username, account,gene)) 
 
                                     print ('\n')
                                     print(f"New Credentials for {account} created")
@@ -134,15 +121,15 @@ def main():
                         if check_existing_user(deli_user):
                             search_account = find_user(deli_user)
                             del_user(search_account)
-                            print(f"{search_account.account} account credentials have been successfully deleted")
+                            print(f"{search_account.account} account credentials successfully deleted")
 
                     elif short_code == 'dc':
 
-                            if display_users():
+                            if display_user():
                                     print("Here is a list of all your account credentials")
                                     print('\n')
 
-                                    for user in display_users():
+                                    for user in display_user():
                                             print(f"Username:....{user.username}")
                                             print(f"password:....{user.password}")
                                             print(f" Account name: .....{user.account}")
@@ -161,11 +148,11 @@ def main():
                             if check_existing_user(search_account):
                                     search_account = find_user(search_account)
                                     print(f"Username: {search_account.username}")
-                                    print('-' * 20)
+                                    print('-' * 50)
 
                                     print(f"Account name: {search_account.account}")
 
-                                    print('-' * 20)
+                                    print('-' * 50)
 
                                     print(f"Password: {search_account.password}")
 
@@ -176,7 +163,9 @@ def main():
                             print("Bye .......")
                             break
                     else:
-                            print("Invalid input. Please try again")
+                            print("Ooops! Please try again")
             break
+
+
 if __name__ == '__main__':
     main()
