@@ -68,6 +68,18 @@ def display_users(cls):
         '''
         return cls.user_list
 
+
+
+@classmethod
+def copy_password(cls,media):
+        '''
+		Class method that copies a credential's password of a specific social media site after the credential's social media name is entered
+		'''
+        collect_pass = Credential.search_media(media)
+        return pyperclip.copy(collect_pass.password) 
+
+
+
 class Credentials:
     
     '''

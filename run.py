@@ -3,6 +3,7 @@ import random
 from password import User
 from password import Credentials
 from getpass import getpass
+import pyperclip
 
 def create_user(firstname,lastname,password):
     '''
@@ -48,6 +49,14 @@ def display_credentials():
     '''
     Function to display_credentials saved
     '''
+def copy_password(media):
+    '''
+    Function to copy credentials and paste them in clipboard
+    '''
+    return Credential.copy_password(media)
+
+
+
 
 
 def main():
