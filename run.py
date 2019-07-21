@@ -4,45 +4,46 @@ from password import Credentials
 import random
 from getpass import getpass
 
+
 def create_user(first_name,last_name, account,password):
     '''
-Function to create a new user
+    Function to create a new user
     '''
     new_user = User(fname,lname, account,password)
     return new_user
 
 def create_password(account, password):
     '''
-Function to create new password
+    Function to create new password
     '''
     new_pass = Credentials(account, password)
     return new_pass
 
-    def save_user(user):
+def save_user(user):
     '''
-Function to save users
+    Function to save users
+   
     '''
     user.save_user()
 
 
 def del_user(user):
     '''
-Function to delete a user
+    Function to delete a user
     '''
     user.delete_user()
 
 
 def find_user(account):
     '''
-    
-Function that finds a user by account and returns the  user
+    Function that finds a user by account and returns the  user
     '''
     return User.find_by_account(account)
 
 
 def check_existing_user(account):
     '''
-Function that checks if a user exists with that account and returns Boolean
+    Function that checks if a user exists with that account and returns Boolean
     '''
     return User.user_exists(account)
 
@@ -50,31 +51,31 @@ Function that checks if a user exists with that account and returns Boolean
 
 def display_users():
     '''
-Function that returns all saved users
+    Function that returns all saved users
     '''
     return User.display_users()
 
 
 def generate_password():
     '''
-Function that generates a password for the user
+    Function that generates a password for the user
     '''
     return Credentials.generatePassword()
 
 
 def save_password(credentials):
     '''
-Function that saves new password
+    Function that saves new password
     '''
     return credentials.save_password()
 
 
 def main():
-    print("Hello! Welcome to your Password Locker.Please sign up")
+    print("Hello! Welcome to your Password Locker.Sign up below")
     while True:
         access_name = input("Password Locker Username: ").lower()
         if access_name == '':
-            print("Wrong ")
+            print("Invalid username")
         else:
             access_pass = getpass("Password Locker sign up key:  ")
             print("Log in using your sign-up credentials")
@@ -95,32 +96,28 @@ def main():
 
                     if short_code == 'cc':
                             print("New Account")
-                            print("*"*100)
+                            print("*"*50)
 
                             while True:
-                                print ("Enter your account...")
+                                print ("Which account is this?...")
                                 account = input()
 
-                                print ("First name ....")
-                            f_name = input()
+                                print("What's your username? ...")
+                                username = input()
 
-                            print("Last name ...")
-                            l_name = input()
-
-
-                                print("generated password or a customised? Type 1 for generated and  2 for customized...")
+                                print("Would you like a generated password or a customised one? Type c for customised and g for generated...")
 
                                 pass_choice = input().lower()
 
                                 if pass_choice == 'c':
-                                    print("Enter your password..")
+                                    print("Enter a password here..")
                                     custom_pass = input()
 
                                     gene=custom_pass
 
 
-                                elif pass_choice == '1':
-                                    print("Password of your choice...")
+                                elif pass_choice == 'g':
+                                    print("Here's a password we think will work for you...")
                                     print('\n')
                                     print(generate_password())
                                     gene= generate_password()
@@ -140,39 +137,38 @@ def main():
 
 
                     elif short_code == 'del':
-                        print("Delete account")
+                        print("Enter name of account to be deleted")
                         deli_user = input()
                         if check_existing_user(deli_user):
                             search_account = find_user(deli_user)
                             del_user(search_account)
-                            print(f"{search_account.account} Account successfully deleted")
+                            print(f"{search_account.account} account credentials have been successfully deleted")
 
                     elif short_code == 'dc':
 
                             if display_users():
-                                    print("Account credentials")
+                                    print("Here is a list of all your account credentials")
                                     print('\n')
 
                                     for user in display_users():
-                                            print(f"First name:....{user.first name}")
-                                            print(f"Last name:....{user.last name}")
-                                            print(f"Password:....{user.password}")
+                                            print(f"Username:....{user.username}")
+                                            print(f"password:....{user.password}")
                                             print(f" Account name: .....{user.account}")
 
                                     print('\n')
                             else:
                                     print('\n')
-                                    print("Please create an account ")
+                                    print("Please create an account first.")
                                     print('\n')
 
                     elif short_code == 'fc':
 
-                            print("Enter the account ")
+                            print("Enter the account you want to search for")
 
                             search_account = input()
                             if check_existing_user(search_account):
                                     search_account = find_user(search_account)
-                                  print(f"{search_account.first_name} {search_account.last_name}")
+                                    print(f"Username: {search_account.username}")
                                     print('-' * 20)
 
                                     print(f"Account name: {search_account.account}")
@@ -182,13 +178,13 @@ def main():
                                     print(f"Password: {search_account.password}")
 
                             else:
-                                    print("Account does not exist")
+                                    print("That account does not exist")
 
                     elif short_code == "ex":
                             print("Bye .......")
                             break
                     else:
-                            print("Access Denied.Wrong Password")
+                            print("Invalid input. Please try again")
             break
 if __name__ == '__main__':
     main()
