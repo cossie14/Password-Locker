@@ -169,7 +169,7 @@ def main():
                                     print("That account does not exist")
 
                     elif short_code == "ex":
-                            print("Bye .......")
+                            print("Bye.Have a blessed.......")
                             break
                     else:
                             print("Ooops! Please try again")
