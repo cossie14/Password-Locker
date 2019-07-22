@@ -9,7 +9,7 @@ def create_user(firstname,lastname,password):
     '''
     Function to create user account
     '''
-    new_user = User(firstname,password)
+    new_user = User(firstname,lastname,password)
     return new_user
 
 def save_user(user):
@@ -168,13 +168,22 @@ def main():
                             else:
                                     print("That account does not exist")
 
+
+                        # elif short_code == 'copy':
+						# print(' ')
+						# choose = input('Media name for the credential password you want to copy: ')
+						# copy_password(choose)
+						# print('Password copied succesfully')
+					    # else:
+						# print('Ooops! Incorrect option.Try again.')
+                                    
+
                     elif short_code == "ex":
                             print("Bye.Have a blessed.......")
                             break
                     else:
                             print("Ooops! Please try again")
             break
-
 
 if __name__ == '__main__':
     main()
