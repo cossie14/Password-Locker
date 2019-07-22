@@ -62,7 +62,7 @@ def copy_password(media):
 def main():
     print("Hello! Welcome to Password Locker.")
     while True:
-        access_name = input("Enter your username here: ").lower()
+        access_name = input("Enter your firstname here: ").lower()
         if access_name == '':
             print("Invalid username")
         else:
