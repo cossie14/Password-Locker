@@ -13,12 +13,12 @@ This is an Python app for generating and storing passwords for various accounts.
 
 
 ## BDD
-1 Internet connection
+1 Internet connection<br>
 2 Create an account with your details<br>
 3 Store existing login credentials <br>
 4 Generate a password for a new account<br>
 5 Allows user to copy credentials<br>
-6 It allows the user to delete an account.<br>
+6 It allows the user to delete an account
 
 
 ## Technologies used
