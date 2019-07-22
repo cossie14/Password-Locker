@@ -9,7 +9,7 @@ def create_user(firstname,lastname,password):
     '''
     Function to create user account
     '''
-    new_user = User(firstname,lastname,password)
+    new_user = User(firstname,password)
     return new_user
 
 def save_user(user):
@@ -112,7 +112,7 @@ def main():
                                     gene= generated_password()
 
                                 if account == '' or username == '' or pass_choice == '':
-                                    print("Account creation failed! Either Account, username or password is blank")
+                                    print("Oops!account creation unsuccessful.Try again")
                                     print('\n')
 
                                 else:
