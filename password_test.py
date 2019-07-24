@@ -1,6 +1,6 @@
 import unittest
-from passwords import User
-from passwords import Credentials
+from password import User
+from password import Credentials
 
 class TestUser(unittest.TestCase):
     '''
@@ -13,15 +13,15 @@ class TestUser(unittest.TestCase):
         '''
         Set up method to run before each test instance
         '''
-        self.new_user = User("Saudahabib","Instagram","trudet")# Instance of class User
+        self.new_user = User("sylviahjepkosgei","Instagram","sly14")
 
     def test_init(self):
         '''
         Test case to test if object is initialised properly
         '''
-        self.assertEqual(self.new_user.username, "Saudahabib")
+        self.assertEqual(self.new_user.username, "sylviahjepkosgei")
         self.assertEqual(self.new_user.account, "Instagram")
-        self.assertEqual(self.new_user.password, "trudet")
+        self.assertEqual(self.new_user.password, "sly14")
 
     def test_save_user(self):
         '''
@@ -43,7 +43,7 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        test_user = User("Mulki Suleiman", "Facebook", "trudet")
+        test_user = User("Sylviah Jepkosgei", "Facebook", "sly14")
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
@@ -52,7 +52,7 @@ class TestUser(unittest.TestCase):
         test_delete_user to test if we can remove a user from object user_list
         '''
         self.new_user.save_user()
-        test_user = User("Mulki Suleiman", "Facebook", "trudet")
+        test_user = User("sylviahjepkosgei", "Instagram", "sly14")
         test_user.save_user()
 
         self.new_user.delete_user()
@@ -64,7 +64,7 @@ class TestUser(unittest.TestCase):
         '''
 
         self.new_user.save_user()
-        test_user = User("Mulki Suleiman", "Facebook", "trudet")
+        test_user = User("Sylviah Jepkosgei", "Facebook", "sly14")
         test_user.save_user()
 
         found_user = User.find_by_account("Facebook")
@@ -72,17 +72,17 @@ class TestUser(unittest.TestCase):
 
     def test_user_exists(self):
         '''
-        test to check if we can return a Boolean if we don't find the user
+        test to check if we can return a Boolean if we don't find a user
         '''
         self.new_user.save_user()
-        test_user = User("Mulki Suleiman", "Facebook", "trudet")
+        test_user = User("Sylviah Jepkosgei", "Facebook", "sly14")
         test_user.save_user()
         user_exists = User.user_exists("Facebook")
         self.assertTrue(user_exists)
 
     def test_display_all_users(self):
         '''
-        method that returns a list of all users saved
+        method that returns a list of all users 
         '''
         self.assertEqual(User.display_users(),User.user_list)
 

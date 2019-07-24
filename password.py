@@ -1,4 +1,5 @@
 import random
+
 class User :
     '''
     Class that generates new instances of a User
@@ -11,22 +12,22 @@ class User :
 
     def save_user(self):
         '''
-        save_user method saves user names into the user list
+         Method saves a new user 
         '''
         User.user_list.append(self)
     def delete_user(self):
         '''
-        delete_user method deletes the user info from user_list
+        Method deletes the user details
         '''
         User.user_list.remove(self)
     @classmethod
     def find_by_account(cls,account):
         '''
-        Method takes in account name and displays user info for that particular account
+        Method finds a particular account
         Args:
             Account name to search for
         Returns:
-            User info for that account
+            User info for that particular account
         '''
         for details in cls.user_list:
             if details.account == account:
@@ -35,9 +36,9 @@ class User :
     @classmethod
     def user_exists(cls,account):
         '''
-        Method checks if user exists from the user_list
+        Method checks if user exists
         Args:
-            account : Account to search if user exists from user_list
+            account : Account to search if user exits
         Return:
             Boolean: True or false depending if the user exists
         '''
@@ -71,12 +72,13 @@ class Credentials:
         self.account = account
 
     def generatePassword():
-        chars = '12345dygdiflfvvsvszjvbzzvk678919bvbmbhzhbcbbbcbb1112'
+        chars = '12345dygdiflfvvsvszj@@vbzz@@##vk678919bvbmbhzhbcbbbcbb1112'
         new_pass = ''.join(random.sample(chars, 5))
         return new_pass
 
     def save_password(self):
         '''
-        save_user method saves user names into the user list
+        Method saves user details i.e passwords
         '''
         User.user_list.append(self)
+        
