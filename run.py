@@ -63,7 +63,7 @@ def generate_password():
     return Credentials.generatePassword()
 
 def main():
-    print("Dear user!Welcome to Password Locker.)
+    print("Dear user!Welcome to Password Locker.")
     while True:
         access_name = input("Please enter your username here: ").lower()
         if access_name == '':
@@ -79,25 +79,25 @@ def main():
                 print('\n')
 
             else:
-                print("Invalid username or password!")
+                print("Sorry,try again!")
 
             while access_pass == login_pass:
-                    print("Use these short codes : cc - create  new account credentials, dc - display account credentials, fc -find an account's credentials, ex -exit Password Locker, del - delete account credentials ")
+                    print("Use these short codes : cc - create  new account credentials details, dc - display account credential details, fc -find an account's credential details, ex -exit , del - delete account credential details")
 
                     short_code = input().lower()
 
                     if short_code == 'cc':
-                            print("New Account")
-                            print("*"*50)
+                            print("New account")
+                            print("*"*30)
 
                             while True:
-                                print ("Which account is this?...")
+                                print ("Which account?...")
                                 account = input()
 
-                                print("What's your username? ...")
+                                print("Your username please? ...")
                                 username = input()
 
-                                print("Would you like a generated password or a customised one? Type c for customised and g for generated...")
+                                print("Please choose an option,for generated password type g and for customised type c...")
 
                                 pass_choice = input().lower()
 
@@ -109,37 +109,36 @@ def main():
 
 
                                 elif pass_choice == 'g':
-                                    print("Here's a password we think will work for you...")
+                                    print("please choose an option...")
                                     print('\n')
                                     print(generate_password())
                                     gene= generate_password()
 
                                 if account == '' or username == '' or pass_choice == '':
-                                    print("Account creation failed! Either Account, username or password is blank")
+                                    print("Sorry.Try again")
                                     print('\n')
 
                                 else:
-                                    save_user(create_user(username, account,gene)) # create and save new account.
-                                    # save_user(create_user(username,account,custom_pass))
+                                    save_user(create_user(username, account,gene)) 
 
                                     print ('\n')
-                                    print(f"New Credentials for {account} created")
+                                    print(f"New Credential details for {account} created")
                                     print ('\n')
                                 break
 
 
                     elif short_code == 'del':
-                        print("Enter name of account to be deleted")
+                        print("Please enter the name of account to be deleted")
                         deli_user = input()
                         if check_existing_user(deli_user):
                             search_account = find_user(deli_user)
                             del_user(search_account)
-                            print(f"{search_account.account} account credentials have been successfully deleted")
+                            print(f"{search_account.account} account successfully deleted")
 
                     elif short_code == 'dc':
 
                             if display_users():
-                                    print("Here is a list of all your account credentials")
+                                    print("Account credential details list")
                                     print('\n')
 
                                     for user in display_users():
@@ -150,33 +149,33 @@ def main():
                                     print('\n')
                             else:
                                     print('\n')
-                                    print("Please create an account first.")
+                                    print("Dear user,please create an account .")
                                     print('\n')
 
                     elif short_code == 'fc':
 
-                            print("Enter the account you want to search for")
+                            print("Please enter the name of the account you want to search for")
 
                             search_account = input()
                             if check_existing_user(search_account):
                                     search_account = find_user(search_account)
                                     print(f"Username: {search_account.username}")
-                                    print('-' * 20)
+                                    print('-' * 30)
 
                                     print(f"Account name: {search_account.account}")
 
-                                    print('-' * 20)
+                                    print('-' * 30)
 
                                     print(f"Password: {search_account.password}")
 
                             else:
-                                    print("That account does not exist")
+                                    print("Such account does not exist!")
 
                     elif short_code == "ex":
-                            print("Bye .......")
+                            print("Bye.Have a blessed day .......")
                             break
                     else:
-                            print("Invalid input. Please try again")
+                            print("Incorrect.Try again")
             break
 if __name__ == '__main__':
     main()
