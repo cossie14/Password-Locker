@@ -1,48 +1,36 @@
 import random
-import string
-import pyperclip
-
-class User:
-          """
-          Class that generates new instances of users
-          """
-
-user_list = [] 
-
-def __init__(self, first_name, last_name, account, password):
-
-
-    self.first_name = first_name
-    self.last_name = last_name
-    self.account = account
-    self.password = password
-
+class User :
+    '''
+    Class that generates new instances of a User
+    '''
+    user_list = []
+    def __init__(self, username, account,password):
+        self.username = username
+        self.account = account
+        self.password=password
 
     def save_user(self):
         '''
         save_user method saves user names into the user list
         '''
         User.user_list.append(self)
-
     def delete_user(self):
         '''
         delete_user method deletes the user info from user_list
         '''
         User.user_list.remove(self)
-
     @classmethod
     def find_by_account(cls,account):
         '''
-        Method takes in account name and returns user info that matches that account
+        Method takes in account name and displays user info for that particular account
         Args:
             Account name to search for
         Returns:
             User info for that account
         '''
-        for info in cls.user_list:
-            if info.account == account:
-                return info
-
+        for details in cls.user_list:
+            if details.account == account:
+                return details
 
     @classmethod
     def user_exists(cls,account):
@@ -58,46 +46,37 @@ def __init__(self, first_name, last_name, account, password):
             if user.account == account:
                 return True
 
-                   
+        return False
 
-
-@classmethod
-def display_users(cls):
+    @classmethod
+    def display_users(cls):
         '''
-        Method that returns user list
+        Method that displays all users
         '''
         return cls.user_list
 
-
-
-@classmethod
-def copy_password(cls,media):
-        '''
-		Class method that copies a credential's password of a specific social media site after the credential's social media name is entered
-		'''
-        collect_pass = Credential.search_media(media)
-        return pyperclip.copy(collect_pass.password) 
-
+    @classmethod
+    def copy_password(cls, account):
+        user_found = User.find_by_account(account)
+        pyperclip.copy(user_found.username)
 
 
 class Credentials:
-    
+    # user_list = []
     '''
-    Class  generates and saves credentials for users
+    Class credentials to store credentials for the users
     '''
-def __init__(first_name,last_name, account, password):
+    def __init__(self, account, password):
         self.password = password
         self.account = account
 
-def Password():
-        chars = '111111111111111111111111111122222222222226666666666666'
+    def generatePassword():
+        chars = '12345dygdiflfvvsvszjvbzzvk678919bvbmbhzhbcbbbcbb1112'
         new_pass = ''.join(random.sample(chars, 5))
         return new_pass
 
-def save_password(self):
+    def save_password(self):
         '''
-        method saves user names into the user list
+        save_user method saves user names into the user list
         '''
         User.user_list.append(self)
-
-       
