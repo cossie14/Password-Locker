@@ -10,10 +10,6 @@ This is an Python terminal app that allows generation and storage of user detail
 
 
 ## BDD
-<<<<<<< HEAD
-=======
-
->>>>>>> 932249a7ad9532ec62e9c762755330d3f0c5dce4
   # The behaviors implemented include;
 1 First you should create an account with your details <br>
 2 Allows storage of login credential details<br>
@@ -31,12 +27,7 @@ This is an Python terminal app that allows generation and storage of user detail
 2 Go to github and search for cossie14/Password Locker
 3 Git clone or download
 4 Then run the application on terminal using  the command './run.py'
-<<<<<<< HEAD
 5 Enjoy!
-
-=======
-5 Enjoy
->>>>>>> 932249a7ad9532ec62e9c762755330d3f0c5dce4
 
 ## Technologies used
 Python vs3.6
